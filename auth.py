@@ -9,12 +9,13 @@ auth = Blueprint('auth', __name__, url_prefix='/auth')
 
 @auth.post('/register')
 def register():
+    username = request.json['username']
     email = request.json['email']
     password = request.json['password']
 
-    if not email or not password:
+    if not email or not password or not username:
         return make_response(jsonify({
-            "error": "email and password should not be empty"
+            "error": "username, email and password should not be empty"
         })), 400
     if not validators.email(email):
         return make_response(jsonify({
@@ -25,10 +26,14 @@ def register():
         return make_response(jsonify({
             "error": "Password should be more than 3 characters"
         })), 400
+    if len(username) < 3:
+        return make_response(jsonify({
+            "error": "username should be more than 3 characters"
+        })), 400
 
     gen_pwd_hash = generate_password_hash(password=password)
 
-    user = User(email=email, password=gen_pwd_hash)
+    user = User(username=username, email=email, password=gen_pwd_hash)
     db.session.add(user)
     db.session.commit()
 
