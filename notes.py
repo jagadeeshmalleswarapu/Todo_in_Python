@@ -44,6 +44,11 @@ def add_notes():
 @jwt_required()
 def get_all():
     user_id = get_jwt_identity()
+    user = User.query.filter_by(id=user_id).first()
+    if not user:
+        return make_response(jsonify({
+            "error": "User not found"
+        })), 404
 
     note = Notes.query.filter_by(user_id=user_id).all()
 
@@ -56,9 +61,11 @@ def get_all():
 
     for n in note:
         data.append({
+            "notes_id": n.id,
             "notes": n.note,
             "created_at": n.created_at,
-            "update_at": n.updated_at
+            "update_at": n.updated_at,
+            "user": user.username
         })
 
     return make_response(jsonify({

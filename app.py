@@ -2,7 +2,7 @@ from flask import Flask, jsonify, make_response
 from database import db
 from auth import auth
 from flask_jwt_extended import JWTManager
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 
 from notes import notes
 
@@ -27,7 +27,6 @@ def create_db():
 
 
 @app.get('/')
-@cross_origin()
 def home():
     return make_response(jsonify({
         "message": "Welcome to the home page!!!"
