@@ -40,3 +40,4 @@ typing_extensions
 validators
 Werkzeug
 zope.interface
+MySQLdb
