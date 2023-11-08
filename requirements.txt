@@ -20,5 +20,6 @@ typing_extensions
 validators
 Werkzeug
 zope.interface
+mysql-connector-python
 mysqlclient
-MySQLdb
+PyMySQL
