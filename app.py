@@ -8,7 +8,7 @@ from notes import notes
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Notes.db'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://sql12660312:Qbv2YV6Whs@sql12.freesqldatabase.com/sql12660312'
+
 app.config["JWT_SECRET_KEY"] = "JWT_SECRET_KEY"
 CORS(app=app, origins=['*'])
 
