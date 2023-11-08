@@ -20,4 +20,5 @@ typing_extensions
 validators
 Werkzeug
 zope.interface
+mysqlclient
 MySQLdb
