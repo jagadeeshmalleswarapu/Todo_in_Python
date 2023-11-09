@@ -23,3 +23,5 @@ zope.interface
 mysql-connector-python
 mysqlclient
 PyMySQL
+psycopg2
+keyring
