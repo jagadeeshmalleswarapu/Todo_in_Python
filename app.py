@@ -3,6 +3,7 @@ from database import db
 from auth import auth
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
+import base64
 
 from notes import notes
 
