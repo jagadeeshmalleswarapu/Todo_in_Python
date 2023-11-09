@@ -6,9 +6,9 @@ db = SQLAlchemy()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(100), unique=True, nullable=False)
-    email = db.Column(db.String(160), unique=True, nullable=False)
-    password = db.Column(db.String(100), nullable=False)
+    username = db.Column(db.String(1000), unique=True, nullable=False)
+    email = db.Column(db.String(1600), unique=True, nullable=False)
+    password = db.Column(db.String(1000), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
     notes = db.relationship('Notes', backref='user')
 
@@ -18,7 +18,7 @@ class User(db.Model):
 
 class Notes(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    note = db.Column(db.String(10000), nullable=False)
+    note = db.Column(db.String(100000), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, onupdate=datetime.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
