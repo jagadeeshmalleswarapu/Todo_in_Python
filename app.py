@@ -9,9 +9,12 @@ from notes import notes
 
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Notes.db'
-paw = b'YjRBMlcxWTRKVmZwY1psYVRaeXh2SURYTXZwWFp1cGw='
+
+paw = b'NTdtczdXMzExUTVtQl9oc3pfMkdmbTlzUkY2d19Ral8='
 gethsh = base64.b64decode(paw).decode("utf-8")
-app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://jagadeeshone:{gethsh}@dpg-cl6dkfiuuipc73cbcl9g-a.oregon-postgres.render.com/testdb_kf2t'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://zmbcwodo:{gethsh}@rain.db.elephantsql.com/zmbcwodo'
+
+# app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://jagadeeshone:{gethsh}@dpg-cl6dkfiuuipc73cbcl9g-a.oregon-postgres.render.com/testdb_kf2t'
 
 app.config["JWT_SECRET_KEY"] = "JWT_SECRET_KEY"
 CORS(app=app, origins=['*'])
